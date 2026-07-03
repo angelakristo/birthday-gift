@@ -1,30 +1,20 @@
-# 🎀 Birthday Gift for Sekana
+Birthday Gift for my sister
+A handmade single-page birthday gift website I built for my sister — with love from me and Hera (our cat).
+About
+An interactive personal web experience featuring scroll-triggered animations, a photo gallery, a custom confetti effect, and a downloadable PDF certificate.
+Tech Stack
 
-A handmade, single-page birthday gift website — from me and Hera 🐾.
+HTML
+CSS
+JavaScript
 
-## How to run it locally
+How to run it locally
+Option A (easiest): Double-click index.html — it opens directly in your browser.
+Option B (recommended):
 
-**Option A — easiest:**
-Double-click `index.html` in your file explorer. It opens in your browser.
+Open the folder in VS Code
+Install the Live Server extension
+Right-click index.html → "Open with Live Server"
 
-**Option B — recommended (auto-reloads when you save):**
-1. Open this folder in VS Code.
-2. Install the **Live Server** extension (by Ritwick Dey).
-3. Right-click `index.html` → "Open with Live Server".
 
-## How to add real photos
-
-1. Put your photos inside the `images/` folder.
-2. Name them `sister1.jpg`, `sister2.jpg`, `sister3.jpg`, and `hera.jpg`.
-3. Save — the page will use them automatically.
-
-If your files have different names, open `index.html` and update the `src="images/..."` paths to match.
-
-## Personalizing the text
-
-Open `index.html` and replace:
-- `[sister name]` with your sister's name
-- `[my name]` with your name
-- Any message text you'd like to make even more personal
-
-That's it. Made with love. 💗
+Made with love <3
