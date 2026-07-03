@@ -1,20 +1,33 @@
-Birthday Gift for my sister
-A handmade single-page birthday gift website I built for my sister — with love from me and Hera (our cat).
-About
-An interactive personal web experience featuring scroll-triggered animations, a photo gallery, a custom confetti effect, and a downloadable PDF certificate.
-Tech Stack
+# Birthday Gift for My Sister
 
-HTML
-CSS
-JavaScript
+A handmade single-page birthday gift website I built for my sister — with love from me and Hera, our cat.
 
-How to run it locally
-Option A (easiest): Double-click index.html — it opens directly in your browser.
-Option B (recommended):
+## About
 
-Open the folder in VS Code
-Install the Live Server extension
-Right-click index.html → "Open with Live Server"
+An interactive personal web experience featuring:
 
+- Scroll-triggered animations
+- A photo gallery
+- Custom confetti effect
+- Downloadable PDF certificate
 
-Made with love <3
+## Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+
+## How to Run Locally
+
+### Option A: Easiest
+
+Double-click `index.html` and it will open directly in your browser.
+
+### Option B: Recommended
+
+1. Open the folder in VS Code
+2. Install the **Live Server** extension
+3. Right-click `index.html`
+4. Click **Open with Live Server**
+
+## Made with love <3
