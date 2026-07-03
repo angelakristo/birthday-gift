@@ -1,0 +1,458 @@
+/* =========================================================
+   Birthday Gift — Stylesheet
+   A soft, pastel design for a personal birthday gift app.
+   ========================================================= */
+
+/* ----- 1. Color palette & base variables ----- */
+:root {
+  --cream: #FFF8F3;
+  --pink-soft: #FADADD;
+  --pink-blush: #F4B6C2;
+  --purple-soft: #C8B6E2;
+  --purple-mist: #EDE4F5;
+  --gold: #E8B86D;
+  --text: #4A3B47;
+  --text-soft: #7A6A75;
+  --white: #FFFFFF;
+
+  --shadow-soft: 0 8px 24px rgba(74, 59, 71, 0.08);
+  --shadow-card: 0 12px 32px rgba(74, 59, 71, 0.12);
+  --radius: 20px;
+}
+
+/* ----- 2. Reset & base ----- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+/* ----- 3. Landing screen ----- */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, var(--pink-soft) 0%, var(--cream) 60%, var(--purple-mist) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-content {
+  max-width: 600px;
+  z-index: 2;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.title .name {
+  color: var(--pink-blush);
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--text-soft);
+  margin-bottom: 2.5rem;
+}
+
+.open-btn {
+  background: var(--pink-blush);
+  color: var(--white);
+  border: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  animation: gentlePulse 2.8s ease-in-out infinite;
+  min-height: 48px;
+}
+
+.open-btn:hover,
+.open-btn:focus {
+  transform: translateY(-3px);
+  background: #ee9fac;
+  outline: none;
+}
+
+.hint {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+/* Floating paw decorations on landing */
+.paw {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.35;
+  animation: bob 6s ease-in-out infinite;
+}
+.paw-1 { top: 15%; left: 10%; }
+.paw-2 { top: 70%; left: 80%; animation-delay: 1.5s; }
+.paw-3 { top: 30%; left: 85%; animation-delay: 3s; }
+
+/* ----- 4. Generic section styling ----- */
+.section {
+  padding: 5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.section-sub {
+  color: var(--text-soft);
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+/* ----- 5. Cards ----- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.card p { margin-bottom: 1rem; }
+.card p:last-child { margin-bottom: 0; }
+
+.soft-card {
+  background: linear-gradient(135deg, var(--white) 0%, var(--pink-soft) 200%);
+}
+
+/* ----- 6. Memories ----- */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.memory-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memory-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+}
+
+.memory-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  background: var(--pink-soft); /* placeholder color until image loads */
+}
+
+.memory-card figcaption {
+  padding: 1rem 1.25rem 1.5rem;
+  color: var(--text-soft);
+  font-style: italic;
+}
+
+/* ----- 7. Reasons grid ----- */
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.reason-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease;
+  border-top: 3px solid var(--pink-blush);
+}
+
+.reason-card:nth-child(even) { border-top-color: var(--purple-soft); }
+.reason-card:nth-child(3n)   { border-top-color: var(--gold); }
+
+.reason-card:hover { transform: translateY(-4px); }
+
+.reason-card .num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--pink-blush);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ----- 8. Hera's Corner ----- */
+.hera-corner {
+  background: linear-gradient(180deg, var(--purple-mist) 0%, var(--cream) 100%);
+  max-width: none;
+  margin: 4rem 0;
+  padding: 5rem 1.5rem;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hera-corner h2 {
+  color: #6b5b8a;
+}
+
+.hera-dates {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-soft);
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.hera-photo {
+  max-width: 320px;
+  margin: 0 auto 2rem;
+  padding: 12px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.hera-photo::before {
+  content: "🐾";
+  position: absolute;
+  top: -18px;
+  right: -10px;
+  font-size: 1.6rem;
+  background: var(--white);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.hera-photo img {
+  width: 100%;
+  border-radius: 14px;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--purple-soft);
+}
+
+.hera-quotes p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.hera-quotes .forever {
+  color: #6b5b8a;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.float-paw {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.25;
+  top: 20%;
+  left: 8%;
+  animation: bob 7s ease-in-out infinite;
+}
+
+.float-paw.paw-right {
+  left: auto;
+  right: 8%;
+  top: 65%;
+  animation-delay: 2s;
+}
+
+/* ----- 9. Message from Hera ----- */
+.hera-card {
+  background: linear-gradient(135deg, var(--white) 0%, var(--purple-mist) 180%);
+  font-style: italic;
+  line-height: 1.9;
+  border-left: 4px solid var(--purple-soft);
+}
+
+.hera-card .signed {
+  font-style: normal;
+  margin-top: 1.5rem;
+  text-align: right;
+  color: var(--text-soft);
+}
+
+.hera-card .signed em {
+  font-family: 'Playfair Display', serif;
+  color: #6b5b8a;
+  font-size: 1.1rem;
+}
+
+/* ----- 10. Final / voucher ----- */
+.voucher {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--pink-blush) 100%);
+  color: var(--white);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  box-shadow: var(--shadow-card);
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+}
+
+.voucher-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.voucher-text { font-size: 1.05rem; margin-bottom: 1rem; }
+
+.voucher-note { font-size: 0.9rem; opacity: 0.9; font-style: italic; }
+
+.signature {
+  margin-top: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+.signature strong { color: var(--pink-blush); font-style: normal; }
+
+/* ----- 10-b. Final message card & download button ----- */
+.final-message-card {
+  background: linear-gradient(135deg, var(--white) 0%, var(--pink-soft) 200%);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  text-align: center;
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+.download-btn {
+  display: block;
+  margin: 2rem auto 2.5rem;
+  animation: none; /* pulse stays on the landing hero only */
+}
+
+@media (max-width: 600px) {
+  .download-btn { width: 100%; }
+}
+
+/* ----- 11. Reveal-on-scroll animation ----- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----- 12. Keyframes ----- */
+@keyframes gentlePulse {
+  0%, 100% { box-shadow: var(--shadow-card); }
+  50%      { box-shadow: 0 12px 36px rgba(244, 182, 194, 0.55); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50%      { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* ----- 13. Confetti ----- */
+.confetti-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  border-radius: 2px;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ----- 14. Responsive tweaks ----- */
+@media (max-width: 600px) {
+  .section { padding: 3.5rem 1.25rem; }
+  .card { padding: 1.75rem 1.5rem; }
+  .voucher { padding: 2rem 1.5rem; }
+  .paw-2, .paw-3 { display: none; }
+}
+
+/* ----- 15. Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
